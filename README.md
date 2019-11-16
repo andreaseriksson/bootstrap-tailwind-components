@@ -19,11 +19,11 @@ You can either pick the normal Bootstrap JS or use the smaller jQuery free [Boot
 
 ## Examples
 
-###Alert
+### Alert
 
 ```html
 <div class="alert alert-primary">
-  A simple primary alert‚Äîcheck it out!
+  A simple primary alert‚ check it out!
 </div>
 ```
 
@@ -37,7 +37,7 @@ You can either pick the normal Bootstrap JS or use the smaller jQuery free [Boot
 }
 ```
 
-###Button
+### Button
 
 ```html
 <button type="button" class="btn btn-primary">Primary</button>
@@ -57,7 +57,7 @@ You can either pick the normal Bootstrap JS or use the smaller jQuery free [Boot
 }
 ```
 
-###Card
+### Card
 
 ```html
 <div class="card">
@@ -96,7 +96,141 @@ You can either pick the normal Bootstrap JS or use the smaller jQuery free [Boot
 }
 ```
 
+### Container
 
+The container class in Bootstrap can't be directly ported since Tailwind also have one so do it like:
+
+```html
+<main role="main" class="container mx-auto px-6 max-w-5xl">
+  <%= render @view_module, @view_template, assigns %>
+</main>
+
+### Navbar
+
+One thing to notice here is that the reponsive classes in Tailwind can't be extracted to components (AFAIK) and must still be in the markup. 
+
+```html
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark sm:flex-row sm:justify-start">
+  <a class="navbar-brand" href="#">Fixed navbar</a>
+  <button class="navbar-toggler sm:hidden" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse sm:flex sm:w-auto" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto sm:flex-row">
+      <li class="nav-item active">
+        <a class="nav-link sm:px-2" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link sm:px-2" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link sm:px-2 disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+```
+
+The CSS for this is a little much but it covers both light and dark mode in both collapsed and non collapsed mode.
+
+```css
+.navbar {
+  @apply relative flex flex-wrap items-center justify-between py-1 px-4;
+}
+
+.fixed-top {
+  @apply fixed top-0 right-0 left-0 z-40
+}
+
+.navbar-brand {
+  @apply inline-block py-1 mr-4 text-xl
+}
+
+.navbar-light .navbar-brand {
+  @apply text-gray-900
+}
+
+.navbar-dark .navbar-brand {
+  @apply text-gray-100
+}
+
+.navbar-toggler {
+  @apply inline-block py-1 px-3 leading-none bg-transparent border border-transparent rounded
+}
+
+.navbar-light .navbar-toggler {
+  @apply text-gray-500 border-gray-400
+}
+
+.navbar-dark .navbar-toggler {
+  @apply text-gray-500 border-gray-700
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,<svg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,<svg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+}
+
+.navbar-toggler-icon {
+  content: "";
+  @apply inline-block w-6 h-6 align-middle bg-center bg-no-repeat
+}
+
+.navbar-collapse {
+  @apply hidden w-full flex-grow items-center
+}
+
+.navbar-collapse.show, .navbar-collapse.in {
+  @apply block
+}
+
+.navbar-nav {
+  @apply flex flex-col pl-0 mb-0 list-none;
+}
+
+.nav-link {
+  @apply block py-2 px-4
+}
+
+.collapse.show .nav-link, .collapse.in .nav-link {
+  @apply px-0
+}
+
+.navbar-light .navbar-nav .nav-link  {
+  @apply text-gray-600
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  @apply text-gray-800
+}
+
+.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active {
+  @apply text-gray-900
+}
+
+.navbar-light .navbar-nav .nav-link.disabled {
+  @apply text-gray-500 pointer-events-none
+}
+
+.navbar-dark .navbar-nav .nav-link  {
+  @apply text-gray-600
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  @apply text-gray-500
+}
+
+.navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.active {
+  @apply text-gray-200
+}
+
+.navbar-dark .navbar-nav .nav-link.disabled {
+  @apply text-gray-700 pointer-events-none
+}
+```
 
 
 ## Screenshots
