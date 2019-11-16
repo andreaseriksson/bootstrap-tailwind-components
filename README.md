@@ -104,6 +104,7 @@ The container class in Bootstrap can't be directly ported since Tailwind also ha
 <main role="main" class="container mx-auto px-6 max-w-5xl">
   <%= render @view_module, @view_template, assigns %>
 </main>
+```
 
 ### Navbar
 
@@ -232,6 +233,129 @@ The CSS for this is a little much but it covers both light and dark mode in both
 }
 ```
 
+### Form
+
+```html
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
+
+```css
+form {
+  @apply block;
+}
+
+label {
+  @apply inline-block mb-2;
+}
+
+.form-check {
+  @apply relative block pl-5;
+}
+
+.form-group {
+  @apply mb-4;
+}
+
+.form-check-input {
+  @apply absolute mt-1 -ml-5;
+}
+
+.form-check-label {
+  @apply mb-0;
+}
+
+.form-control {
+  @apply block w-full py-2 px-3 text-base font-normal leading-normal text-gray-700 bg-white border border-gray-400 rounded;
+}
+
+.form-inline {
+  @apply flex flex-wrap flex-row items-center
+}
+
+.form-inline .form-control {
+  @apply inline-block w-auto align-middle
+}
+
+.form-text {
+  @apply block mt-1;
+}
+```
+
+### Table
+
+```html
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+```css
+th {
+  text-align: inherit;
+}
+
+.table {
+  @apply w-full mb-4 text-gray-900
+}
+
+.table thead th {
+  @apply align-bottom border-b-2 border-gray-300
+}
+
+.table td, .table th {
+  @apply p-3 border-t border-gray-300
+}
+
+.table.table-bordered {
+  @apply border border-gray-300
+}
+
+.table-bordered td, .table-bordered th {
+  @apply border border-gray-300
+}
+
+```
 
 ## Screenshots
 
