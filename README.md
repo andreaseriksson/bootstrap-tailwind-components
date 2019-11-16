@@ -17,6 +17,88 @@ Basically you just need to follow the [Tailwind install guide](https://tailwindc
 
 You can either pick the normal Bootstrap JS or use the smaller jQuery free [Bootstrap Native library](https://thednp.github.io/bootstrap.native/)
 
+## Examples
+
+###Alert
+
+```html
+<div class="alert alert-primary">
+  A simple primary alert‚Äîcheck it out!
+</div>
+```
+
+```css
+.alert {
+  @apply relative px-5 py-3 mb-4 rounded border border-transparent;
+}
+
+.alert-primary {
+  @apply text-blue-800 bg-blue-200 border-blue-300;
+}
+```
+
+###Button
+
+```html
+<button type="button" class="btn btn-primary">Primary</button>
+```
+
+```css
+.btn {
+  @apply inline-block font-normal text-center px-3 py-2 leading-normal text-base rounded cursor-pointer;
+}
+
+.btn-primary {
+  @apply text-white bg-blue-600;
+}
+
+.btn-primary:hover {
+  @apply text-white bg-blue-700
+}
+```
+
+###Card
+
+```html
+<div class="card">
+  <img src="https://dummyimage.com/640x4:3/" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+```
+
+```css
+.card {
+  @apply flex flex-col relative bg-white rounded border border-gray-300;
+}
+
+.card-body {
+  @apply flex-auto p-5;
+}
+
+.card-img-top {
+  @apply w-full rounded-t;
+}
+
+.card-link + .card-link {
+  @apply ml-5;
+}
+
+.card-text {
+  @apply my-0 mb-4;
+}
+
+.card-title {
+  @apply mb-3 text-xl;
+}
+```
+
+
+
+
 ## Screenshots
 
 ![Screenshot 2019-11-15 at 21 28 13](https://user-images.githubusercontent.com/897748/68973630-16d72c80-07ef-11ea-8b81-b83fb94437c6.png)
